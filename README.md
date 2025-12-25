@@ -1,131 +1,126 @@
-# 企业数字化转型指数查询与可视化
+# 企业数字化转型指数查询系统
 
-## 项目简介
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
-这是一个基于Streamlit的企业数字化转型指数查询与可视化应用。该应用允许用户查询和分析企业的数字化转型指数，通过多种可视化图表展示数据趋势和分布情况。
+## 📊 项目介绍
 
-## 功能特点
+本项目是一个基于Streamlit的企业数字化转型指数查询系统，可以可视化分析企业数字化转型指数数据，支持按股票代码和年份查询，展示数字化转型指数的趋势变化和分布情况。
 
-- **企业数字化转型指数查询**：根据股票代码和企业名称查询企业的数字化转型指数
-- **历年指数趋势分析**：展示企业历年数字化转型指数和排名变化
-- **统计排行展示**：
-  - 当年数字化转型指数Top 10企业
-  - 企业历年指数排名变化
-- **数据概览**：
-  - 数据集统计信息
-  - 当前企业详细数据
-- **数据可视化**：
-  - 数字化转型指数整体分布直方图
-  - 历年平均数字化转型指数趋势折线图
-  - 数字化转型指数级别分布饼图
-  - 技术维度与应用维度相关性散点图
-  - 各年份数字化转型指数分布箱线图
-- **详细统计分析**：提供数字化转型指数的详细统计信息
+### 主要功能
 
-## 数据来源
+- **数据概览**：展示整体数据的统计信息，包括平均指数、最大值、企业数量和年份范围
+- **企业查询**：通过股票代码搜索特定企业，查看其数字化转型指数
+- **趋势分析**：展示企业历年的数字化转型指数变化趋势
+- **指数分布**：展示企业数字化转型指数的区间分布和各年份的平均水平
+- **排名对比**：展示企业平均数字化转型指数的排名情况（TOP20）
 
-数据来自于"两版合并后的年报数据_完整版.xlsx"文件，包含了中国上市公司的数字化转型相关数据，主要字段包括：
+## 🚀 部署说明
 
-- 股票代码
-- 企业名称
-- 年份
-- 人工智能词频数
-- 大数据词频数
-- 云计算词频数
-- 区块链词频数
-- 数字技术运用词频数
-- 技术维度
-- 应用维度
-- 词总
-- 数字化转型指数
+### 方法一：Streamlit Cloud部署（推荐）
 
-## 技术栈
+1. **准备GitHub仓库**
+   - 创建新的GitHub仓库
+   - 将本项目文件上传到仓库
 
-- **Streamlit**：Web应用框架
-- **Pandas**：数据处理
-- **Plotly**：数据可视化
+2. **配置Streamlit Cloud**
+   - 访问 [Streamlit Cloud](https://streamlit.io/cloud)
+   - 使用GitHub账号登录
+   - 点击"New app"
+   - 选择您的GitHub仓库
+   - 选择分支（通常为main或master）
+   - 主文件路径填写：`streamlit_app.py`
+   - 点击"Deploy"
 
-## 环境要求
+3. **配置数据文件**
+   - 将 `两版合并后的年报数据_完整版.xlsx` 上传到GitHub仓库
+   - 代码会自动从仓库加载数据
 
-- Python 3.7+
-- pip
-
-## 安装与运行
-
-### 1. 克隆仓库
+### 方法二：本地运行
 
 ```bash
+# 1. 克隆仓库
 git clone <your-repository-url>
-cd <repository-directory>
-```
+cd <repository-name>
 
-### 2. 安装依赖
+# 2. 创建虚拟环境（可选）
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+# 或
+venv\Scripts\activate  # Windows
 
-```bash
+# 3. 安装依赖
 pip install -r requirements.txt
+
+# 4. 运行应用
+streamlit run streamlit_app.py
 ```
 
-### 3. 运行应用
-
-```bash
-streamlit run digital_transformation_app.py
-```
-
-应用将在本地启动，访问地址为：http://localhost:8501
-
-## 部署到Streamline Code
-
-### 1. 在GitHub上创建仓库
-
-将项目文件提交到GitHub仓库：
-
-```bash
-git init
-git add .
-git commit -m "Initial commit"
-git remote add origin <your-github-repository-url>
-git push -u origin main
-```
-
-### 2. 在Streamline Code上部署
-
-1. 登录Streamline Code
-2. 创建新的应用
-3. 连接到你的GitHub仓库
-4. 选择部署分支（通常为main）
-5. 设置部署命令：
-   ```bash
-   pip install -r requirements.txt && streamlit run digital_transformation_app.py --server.port 8000 --server.headless true
-   ```
-6. 配置环境变量（如果需要）
-7. 点击部署按钮
-
-## 项目结构
+## 📁 项目结构
 
 ```
-.
-├── digital_transformation_app.py  # 主应用文件
-├── test_data.py                  # 数据测试文件
-├── 两版合并后的年报数据_完整版.xlsx    # 数据源文件
-├── requirements.txt              # 依赖列表
-├── README.md                     # 项目说明文档
-└── .gitignore                    # Git忽略文件
+年报合并数据/
+├── streamlit_app.py           # Streamlit主应用文件
+├── requirements.txt           # Python依赖包列表
+├── 两版合并后的年报数据_完整版.xlsx  # 数据文件
+├── README.md                  # 项目说明文档
+├── .gitignore                 # Git忽略文件配置
+└── .streamlit/
+    └── config.toml            # Streamlit配置（可选）
 ```
 
-## 使用说明
+## 🔧 配置说明
 
-1. 在侧边栏输入股票代码或企业名称进行搜索
-2. 选择查询年份
-3. 点击查询按钮
-4. 查看企业数字化转型指数和相关分析
-5. 浏览统计排行、数据概览和可视化图表
+### Streamlit配置（可选）
 
-## 注意事项
+在项目根目录创建 `.streamlit/config.toml` 文件：
 
-- 确保数据源文件"两版合并后的年报数据_完整版.xlsx"与应用程序在同一目录下
-- 如果遇到数据加载问题，请检查文件路径和文件格式
-- 首次运行时，应用程序会缓存数据以提高后续访问速度
+```toml
+[server]
+port = 8501
+headless = true
 
-## 许可证
+[browser]
+gatherUsageStats = false
+```
 
-MIT License
+### 数据文件要求
+
+- 文件格式：Excel文件（.xlsx）
+- 必需列：
+  - `股票代码`：企业股票代码
+  - `企业名称`：企业名称
+  - `年份`：数据年份
+  - `数字化转型指数`：数字化转型指数值
+
+## 📦 依赖包
+
+```
+streamlit>=1.28.0
+pandas>=2.0.0
+plotly>=5.15.0
+openpyxl>=3.1.0
+```
+
+## 🤝 贡献指南
+
+1. Fork本项目
+2. 创建您的特性分支 (`git checkout -b feature/AmazingFeature`)
+3. 提交您的更改 (`git commit -m 'Add some AmazingFeature'`)
+4. 推送到分支 (`git push origin feature/AmazingFeature`)
+5. 创建一个Pull Request
+
+## 📄 许可证
+
+本项目采用MIT许可证 - 详见 [LICENSE](LICENSE) 文件
+
+## 👨‍💻 作者
+
+您的名字
+
+## 📞 联系方式
+
+如果您有任何问题或建议，请通过以下方式联系：
+- 创建 [Issue](https://github.com/yourusername/your-repo/issues)
+- 发送邮件至：your-email@example.com
